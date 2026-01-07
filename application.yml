@@ -1,0 +1,69 @@
+server:
+  port: 2333
+  address: 0.0.0.0
+  http2:
+    enabled: true
+
+lavalink:
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.16.0"
+      repository: "https://maven.lavalink.dev/releases"
+      snapshot: false
+    - dependency: "com.github.topi314.lavasrc:lavasrc-plugin:4.3.0"
+      repository: "https://maven.lavalink.dev/releases"
+      snapshot: false
+  server:
+    password: "LaVaGoSeRvEr2024!"
+    sources:
+      youtube: false
+      bandcamp: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      http: true
+      local: false
+    filters:
+      volume: true
+      equalizer: true
+      karaoke: true
+      timescale: true
+      tremolo: true
+      vibrato: true
+      distortion: true
+      rotation: true
+      channelMix: true
+      lowPass: true
+    bufferDurationMs: 400
+    frameBufferDurationMs: 5000
+    opusEncodingQuality: 10
+    resamplingQuality: HIGH
+
+plugins:
+  youtube:
+    enabled: true
+    allowSearch: true
+    clients:
+      - TVHTML5EMBEDDED
+      - TV
+      - IOS
+      - MUSIC
+      - WEB
+    oauth:
+      enabled: true
+      refreshToken: "1//0fOI2mObPkmUJCgYIARAAGA8SNwF-L9Irl-vbaL8P7AD0MoShZuEsVc2zg3p_gYGUKPMp6q_VZEEVAtUaoK-Dw8nR4YvGhDL2pYM"
+  lavasrc:
+    providers:
+      - "ytmsearch:%QUERY%"
+      - "ytsearch:%QUERY%"
+    sources:
+      spotify: true
+      youtube: true
+    spotify:
+      clientId: "125c9a5dc70045658c0c7bc072302b38"
+      clientSecret: "fc9e1c994c334274b3a381bde89bed5d"
+      countryCode: "ID"
+
+logging:
+  level:
+    root: INFO
+    lavalink: INFO
